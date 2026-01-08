@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{{title}}</title>
+    <!-- Tailwind via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+<nav class="p-4 bg-white shadow-sm">
+    <div class="max-w-4xl mx-auto">Navbar ¯\_(ツ)_/¯</div>
+</nav>
+<main class="max-w-4xl mx-auto p-6">
+    <h1 class="text-2xl font-semibold mb-4">Drogon + htmx demo</h1>
+
+
+    <div id="content">
+        <p>Press the button to load a server fragment into the page:</p>
+        <button class="px-4 py-2 bg-blue-600 text-white rounded"
+                hx-get="/components/hello_fragment"
+                hx-target="#message"
+                hx-swap="innerHTML">
+            Load fragment (htmx)
+        </button>
+
+
+        <div id="message" class="mt-4 text-lg"></div>
+
+
+        <hr class="my-6" />
+
+
+        <p>API example (JSON, rate-limited):</p>
+        <pre id="apiResult"></pre>
+        <button class="px-3 py-1 border rounded" id="callApi">Call API (fetch)</button>
+    </div>
+</main>
+
+
+<script src="https://unpkg.com/htmx.org@1.9.2"></script>
+<script>
+    document.getElementById('callApi').addEventListener('click', async () => {
+        const res = await fetch('/api/hello');
+        const text = await res.text();
+        document.getElementById('apiResult').textContent = text;
+    });
+</script>
+</body>
+</html>
