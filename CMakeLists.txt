@@ -33,8 +33,7 @@ add_executable(${PROJECT_NAME}
 #        COMMENT "Copying templates"
 #)
 
-file(COPY ${PROJECT_SOURCE_DIR}/templates
-        DESTINATION ${PROJECT_BINARY_DIR}
-)
+file( COPY ${PROJECT_SOURCE_DIR}/templates   DESTINATION ${PROJECT_BINARY_DIR} )
+file( COPY ${PROJECT_SOURCE_DIR}/config.json DESTINATION ${PROJECT_BINARY_DIR} )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE drogon)

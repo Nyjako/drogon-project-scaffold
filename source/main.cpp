@@ -16,7 +16,9 @@ int main()
 
 
     // Serve static files (if you place files in ./static)
-    drogon::app().addListener("0.0.0.0", 8080);
+    drogon::app().loadConfigFile("config.json");
+    // Or setup in code
+    // drogon::app().addListener("0.0.0.0", 8080);
     drogon::app().run();
     return 0;
 }
