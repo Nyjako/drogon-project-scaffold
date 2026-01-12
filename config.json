@@ -4,5 +4,20 @@
   ],
   "run": {
     "thread_num": 4
+  },
+  "db_clients": [
+    {
+      "name": "",
+      "rdbms": "sqlite3",
+      "filename": "myapp.db",
+      "connection_number": 1
+    }
+  ],
+  "log": {
+    "log_path": "./logs",
+    "logfile_base_name": "",
+    "log_size_limit": 100000000,
+    "log_level": "TRACE",
+    "display_local_time": true
   }
 }
